@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>考试</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .box {
+            width: 430px;
+            height: 427px;
+            margin: 100px;
+            border: 1px solid #ccc;
+            position: relative;
+        }
+
+        .big {
+            width: 375px;
+            height: 500px;
+            position: absolute;
+            top: 0;
+            left: 430px;
+            border: 1px solid #ccc;
+            overflow: hidden;
+            display: none;
+        }
+
+        .big img {
+            position: relative;
+        }
+
+        .mask {
+            width: 186px;
+            height: 250px;
+            background: rgba(255, 255, 0, 0.4);
+            position: absolute;
+            top: 0;
+            left: 0;
+            cursor: move;
+            display: none;
+        }
+
+        .small {
+            position: relative;
+            right: 50px;
+            left: 0px;
+        }
+
+        body {
+            height: 1000px;
+        }
+
+        main {
+            text-align: center;
+        }
+
+        a:hover {
+            color: tomato;
+        }
+
+        a {
+            text-decoration: none;
+            color: black;
+        }
+
+        table {
+            width: 200px;
+            height: 200px;
+            border-color: chartreuse;
+            border-radius: 5px 5px 5px 5px;
+            overflow: scroll;
+            font-family: cursive;
+            font-style: italic;
+            margin: 20px 0 0 28%;
+        }
+
+        #tt {
+            background-color: aquamarine;
+        }
+    </style>
+</head>
+<img id="imgl" src="penhuolong.gif" alt="" style="position: absolute; left: 1023px; top: 186px;">
+
+<body>
+    <main>
+
+
+        <table border="5px" cellspacing="0">
+
+            <tr>
+                <td rowspan="4"> 美食介绍</td>
+            </tr>
+
+
+            <tr>
+                <td id="tt" colspan="3">
+                    <div id="box" class="box">
+                        <div class="small">
+                            <img src="wt.jpg" alt="" width="440px" height="450px">
+                            <div class="mask" style="display:none;left: 134px;top: 0px;"></div>
+                        </div>
+                        <div class="big" style="display:none;">
+                            <img src="wt.jpg" alt="" style="left:-263px;top: 0px;width: 640px;">
+                        </div>
+                    </div>
+                </td>
+            </tr>
+
+            <tr>
+                <td>链接在旁边噢</td>
+                <td><a href="https://detail.tmall.com/item.htm?id=567145235158&ali_refid=a3_430673_1006:1105819464:N:cBHkHqAh7tzKwy/mRCXR9g==:63c95b598ccf86ebdf996af980258ced&ali_trackid=1_63c95b598ccf86ebdf996af980258ced&spm=a2e0b.20350158.31919782.3">点我购买不迷路</a>
+                </td>
+            </tr>
+            <tr>
+                <td>对碗团的介绍</td>
+                <td>
+                    碗团是流传千年位于山西省吕梁市柳林县的传统面食小吃，在方言里又叫做“碗凸、碗托、碗坨、碗脱、碗团”。<p></p> 碗团是用荞面同水揉到一块儿，加热熬成粥糊状，晾凉以后即成。
+                    食用时，浇上醋、蒜、秘制辣椒油，再将它用小刀划开，即可食用。碗团在柳林县一带非常有名气的小吃，大街小巷都有卖碗团的商贩的身影，许多游客在柳林县游玩时都会吃上一碗。碗团由石勒发明于西晋初年，可冷食或者热食。用荞麦仁加水渗透碾压，渐渐加水，掺成糊状，过滤去渣，稠度以挂勺为宜。而后将粉糊盛碗入笼，旺火蒸熟后晾凉，从碗中脱出成，故名碗砣。其色浅灰，食时切片，状若柳叶。调拌汤汁用盐、醋、油泼辣子、花椒粉、姜粉、蒜泥、香菜、芝麻等加水勾兑而成。荞面碗团在诸多的荞面食品中，有着鲜明的特色，筋软耐嚼，香醇可口，百吃不厌，常吃常新。
+                </td>
+            </tr>
+        </table>
+        <audio controls="hidden">
+            <source src="byh.mp3" type="audio/mpeg">
+        </audio>
+        <p></p>
+        201916180309 李鑫月<p></p> 201916180310 李俊凯:我是一个来自山西大同的爱读书爱动脑的男孩子 <p></p> 201916180312 陈浩天
+        <script>
+
+            var img = document.getElementById("imgl");
+            document.onmousemove = function (ev) {
+                ev = ev || window.event;
+
+                img.style.position = "absolute";
+
+
+                img.style.left = ev.pageX + 'px';
+                img.style.top = ev.pageY + 'px';
+            }
+            var box = document.getElementById('box');
+            var smallBox = box.children[0];
+            var smallImage = smallBox.children[0];
+            var mask = smallBox.children[1];
+            var bigBox = box.children[1];
+            var bigImage = bigBox.children[0];
+
+            function getPage(ev) {
+                return {
+                    pageX: ev.clientX + (document.documentElement.scrollLeft || document.body.scrollLeft),
+                    pageY: ev.clientY + (document.documentElement.scrollTop || document.body.scrollTop)
+                }
+            }
+
+
+            smallBox.onmouseenter = function () {
+                mask.style.display = 'block';
+                bigBox.style.display = 'block';
+            }
+
+
+            smallBox.onmouseleave = function () {
+                mask.style.display = 'none';
+                bigBox.style.display = 'none';
+            }
+
+
+            smallBox.onmousemove = function (ev) {
+                ev = ev || window.event;
+                var x = getPage(ev).pageX - box.offsetLeft;
+                var y = getPage(ev).pageY - box.offsetTop;
+
+
+                x -= mask.offsetWidth / 2;
+                y -= mask.offsetHeight / 2;
+
+
+                x = x < 0 ? 0 : x;
+                y = y < 0 ? 0 : y;
+
+                var maxX = smallBox.offsetWidth - mask.offsetWidth;
+                var maxY = smallBox.offsetHeight - mask.offsetHeight;
+                x = x > maxX ? maxX : x;
+                y = y > maxY ? maxY : y;
+
+                mask.style.left = x + 'px';
+                mask.style.top = y + 'px';
+
+                var bigMaxX = bigImage.offsetWidth - bigBox.offsetWidth;
+                var bigMaxY = bigImage.offsetHeight - bigBox.offsetHeight;
+
+                var bigImageX = x * bigMaxX / maxX;
+                var bigImageY = y * bigMaxY / maxY;
+
+                bigImage.style.left = -bigImageX + 'px';
+                bigImage.style.top = -bigImageY + 'px';
+            }
+        </script>
+    </main>
+
+</body>
+
+</html
